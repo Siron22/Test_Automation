@@ -56,8 +56,8 @@
 # a = a - 1  # a -= 1
 # a = a ** 1  # a **= 1
 
-names = []
-
-if names:
-    print(names[0])
+# names = []
+#
+# if names:
+#     print(names[0])
 
