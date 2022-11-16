@@ -1,5 +1,26 @@
 # Задание 1 Дан файл с произвольным текстом, необходимо найти все числа в файле и записать в список numbers
 
+# Решение с учётом замечаний.
+# numbers = []
+# with open('HW_7-1.txt', 'r') as f:
+#     f = f.read().split()
+# for i in f:
+#     if i.isdigit():
+#         numbers.append(i)
+# print(numbers)
+
+# А это решение разобьёт весь текст по символам и найдёт цифры внутри слов. Правла вернет не числа, а отдельные цифры
+# numbers = []
+# with open('HW_7-1.txt', 'r') as f:
+#     f = list(f.read())
+# for i in f:
+#     if i.isdigit():
+#         numbers.append(i)
+# print(numbers)
+
+
+
+# Первоначальное рещение, которое не читывает число в конце строки
 # with open('HW_7-1.txt', 'r') as f:
 #     f = str(f.readlines())
 # numbers = []
