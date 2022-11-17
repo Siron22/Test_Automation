@@ -50,12 +50,13 @@
 # 4. Напишите функцию read_last(lines, file), которая будет открывать определенный файл file и выводить на печать построчно последние строки в количестве lines
 # (на всякий случай проверим, что задано положительное целое число).
 
-# def read_last(lines, file):
+# Решение 1. Split('\n')
+# def read_last(lines: int, file):
 #     if type(lines) == int and lines > 0:
 #         for i in range(lines):
 #             with open(f'{file}', 'r') as f:
 #                 f = f.read()
-#             f = list(f.split('\n'))
+#             f = list(f.splitlines('\n'))
 #             f.reverse()
 #             line = f[i]
 #             print(line)
@@ -63,4 +64,21 @@
 #         print('Argument "LINES" is incorrect')
 
 
-read_last(3, 'data_HW8.txt')
+# read_last(3, 'data_HW8.txt')
+
+# Решение 2. Splitlines
+
+# st(lines: int, file):
+#     if type(lines) == int and lines > 0:
+#         for i in range(lines):
+#             with open(f'{file}', 'r') as f:
+#                 f = f.read()
+#             f = list(f.splitlines())
+#             f.reverse()
+#             line = f[i]
+#             print(line)
+#     else:
+#         print('Argument "LINES" is incorrect')
+#
+#
+# read_last(3, 'data_HW8.txt')
