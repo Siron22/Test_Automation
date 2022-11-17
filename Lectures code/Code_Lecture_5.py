@@ -3,18 +3,18 @@
 # print('', '*', sep='-')
 # print(1, 2, sep='-')
 
-a = [1, 1, 2, 3, 44, 4, 5, 1]
-
-count = 0
-
-for i in a.copy():  # [2, 3, 44, 4, 5]
-    a.remove(i)
-    a.copy().count
-    # a.append(i)
-    count += 1
-    print(i)
-print(a)
-print(count)
+# a = [1, 1, 2, 3, 44, 4, 5, 1]
+#
+# count = 0
+#
+# for i in a.copy():  # [2, 3, 44, 4, 5]
+#     a.remove(i)
+#     a.copy().count
+#     # a.append(i)
+#     count += 1
+#     print(i)
+# print(a)
+# print(count)
 
 # a = 'Hello world'
 #
