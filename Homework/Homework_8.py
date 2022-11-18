@@ -56,7 +56,7 @@
 #         for i in range(lines):
 #             with open(f'{file}', 'r') as f:
 #                 f = f.read()
-#             f = list(f.splitlines('\n'))
+#             f = list(f.split('\n'))
 #             f.reverse()
 #             line = f[i]
 #             print(line)
