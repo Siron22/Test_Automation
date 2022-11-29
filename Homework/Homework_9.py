@@ -5,17 +5,18 @@
 
 # Решение 1.1. Рекурсия
 
-# def is_power_of_two(a: int, n=2) -> str:
-#     if n > a :
-#         print("NO")
-#     elif n < a:
-#         return is_power_of_two(a, n * 2)
-#     else:
-#         print("YES")
-#
-# a = int(input("Enter a number: "))
-#
-# is_power_of_two(a)
+def is_power_of_two(a: int, n=2) -> str:
+    if n > a:
+        return "NO"
+    elif n < a:
+        return is_power_of_two(a, n * 2)
+    else:
+        return "YES"
+
+
+a = int(input("Enter a number: "))
+
+print(is_power_of_two(a))
 
 # Решение 1.2. Рекурсия. Не учитывает 0
 
@@ -30,7 +31,6 @@
 # a = int(input("Enter a number: "))
 #
 # is_power_of_two(a)
-
 
 
 # Решение 2. Цикл и умножение на два
@@ -59,7 +59,6 @@
 # a = int(input("Enter a number: "))
 #
 # is_power_of_two(a)
-
 
 
 # def is_power_of_two(a: int) -> str:
