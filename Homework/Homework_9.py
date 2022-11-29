@@ -3,19 +3,33 @@
 # is_power_of_two(256) # 'yes' потому что 2 в 8 степени это 256
 # is_power_of_two(125) # 'no' потому что это не степень двойки
 
-# Решение 1. Рекурсия
+# Решение 1.1. Рекурсия
 
-def is_power_of_two(a: int) -> str:
-    if type(a) == float:
-        print("NO")
-    elif a % 2:
-        return is_power_of_two(a / 2)
-    else:
-        print("YES")
+# def is_power_of_two(a: int, n=2) -> str:
+#     if n > a :
+#         print("NO")
+#     elif n < a:
+#         return is_power_of_two(a, n * 2)
+#     else:
+#         print("YES")
+#
+# a = int(input("Enter a number: "))
+#
+# is_power_of_two(a)
 
-a = int(input("Enter a number: "))
+# Решение 1.2. Рекурсия. Не учитывает 0
 
-is_power_of_two(a)
+# def is_power_of_two(a: int) -> str:
+#     if type(a) == float:
+#         print("NO")
+#     elif a % 2:
+#         return is_power_of_two(a / 2)
+#     else:
+#         print("YES")
+#
+# a = int(input("Enter a number: "))
+#
+# is_power_of_two(a)
 
 
 
