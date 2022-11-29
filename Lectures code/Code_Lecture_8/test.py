@@ -1,9 +1,9 @@
 from typing import List, Union, Tuple
 import random
 
-# a = 1
-#
-#
+a = 1
+
+
 # def sum_all(*args: Union[float, int]) -> Union[float, int]:
 #     MyVar = 2  # noqa
 #     value = 0
@@ -11,7 +11,7 @@ import random
 #         value += num
 #     return value
 #
-# sum_all(1, 2, 3.4, '5')
+# print(sum_all(1, 2, 3.4))
 
 
 # contacts = [

@@ -51,20 +51,20 @@
 # (на всякий случай проверим, что задано положительное целое число).
 
 # Решение 1. Split('\n')
-# def read_last(lines: int, file):
-#     if type(lines) == int and lines > 0:
-#         for i in range(lines):
-#             with open(f'{file}', 'r') as f:
-#                 f = f.read()
-#             f = list(f.split ('\n'))
-#             f.reverse()
-#             line = f[i]
-#             print(line)
-#     else:
-#         print('Argument "LINES" is incorrect')
+def read_last(lines: int, file):
+    if type(lines) == int and lines > 0:
+        for i in range(lines):
+            with open(f'{file}', 'r') as f:
+                f = f.read()
+            f = list(f.split ('\n'))
+            f.reverse()
+            line = f[i]
+            print(line)
+    else:
+        print('Argument "LINES" is incorrect')
 
 
-# read_last(3, 'data_HW8.txt')
+read_last(2, 'data_HW8.txt')
 
 # Решение 2. Splitlines
 

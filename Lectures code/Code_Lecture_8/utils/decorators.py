@@ -8,13 +8,13 @@ from utils.additional import *
 say_hello('Petr', 30)
 
 
-def hello_decorator(func):
-    def inner():
-        print("Hello, this is before function execution")
-        func()
-        print("This is after function execution")
-
-    return inner
+# def hello_decorator(func):
+#     def inner():
+#         print("Hello, this is before function execution")
+#         func()
+#         print("This is after function execution")
+#
+#     return inner
 
 
 def get_run_time(func):
