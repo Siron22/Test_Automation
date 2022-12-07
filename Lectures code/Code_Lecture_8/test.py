@@ -73,7 +73,7 @@ import time
 
 # from utils import decorators
 # import utils
-# print('OUTPUT FROM main.py', decorators.very_slow_function(100))
+# print('OUTPUT FROM date_time.py', decorators.very_slow_function(100))
 
 # import random
 #
