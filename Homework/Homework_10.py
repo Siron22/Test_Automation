@@ -29,22 +29,23 @@ def daa():
     pass
 
 
-@call_times('deco_test.txt')
+@call_times('deco_test1.txt')
 def zaa():
     pass
 
 
-for i in range(10):
+for i in range(60):
     baa()
 
-for i in range(20):
+for i in range(23):
     daa()
 
-for i in range(100):
+counter.clear()
+
+for i in range(16):
     zaa()
 
-print(counter)
-
+counter.clear()
 
 
 

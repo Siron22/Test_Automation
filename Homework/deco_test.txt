@@ -1,3 +1,2 @@
-Function baa was called 10 times.
-Function daa was called 20 times.
-Function zaa was called 100 times.
+Function baa was called 60 times.
+Function daa was called 23 times.
