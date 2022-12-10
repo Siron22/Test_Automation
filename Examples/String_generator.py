@@ -1,17 +1,21 @@
 # Написать функцию, которая возвращает слуайную строку заданной длины.
 # Строка должна состоять из больших и маленьких латинских букв и цифр.
 
-# 1. С помощью втроенной функции chr, которая возвращает случайный символ из диапазона ASCII кодов. Недостаток -
-# включает спецсимволы
+# Решение 1. С помощью втроенной функции chr, которая возвращает случайный символ из диапазона ASCII кодов.
 # import random
 # def get_random_string(length: int) -> str:
 #     rand_string = ''
 #     for _ in range(length) :
-#         a = chr(random.randint(65, 122))
+#         low_case = random.randint(97, 122)
+#         up_case = random.randint(65, 90)
+#         numbers = random.randint(48, 57)
+#         character = [low_case, up_case, numbers]
+#         a = chr(random.choice(character))
 #         rand_string += a
 #     return rand_string
 #
-# print(get_random_string(23))
+# length = int(input("Введите длину строки: "))
+# print(get_random_string(length))
 
 # 2. С помощью библиотек random & string
 # import random
@@ -53,3 +57,15 @@
 #
 #
 # generate_alphanum_random_string(16)
+
+# С помощью кодирования base64
+# import base64
+# import random
+#
+#
+# def get_random_string(length): return base64.b64encode(random.randbytes(length // 8 * 6)).replace(b'+',
+# b'A').replace(b'/', b'B')[:length].decode()
+#
+#
+# length = int(input("Введите длину строки: "))
+# print(get_random_string(length))
