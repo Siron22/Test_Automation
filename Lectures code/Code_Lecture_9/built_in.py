@@ -81,11 +81,11 @@
 # c = zip(a, b, d)
 # print(list(c))
 #
-# q = [1, 2, 4]
-# print(list(zip(q)))
+q = [1, 2, 4]
+print(list(zip(q)))
 
 from functools import reduce
-a = [1, 2, 4, 6, 6, 3, 1]
+# a = [1, 2, 4, 6, 6, 3, 1]
 # [1, 2, 4, 6]
 # [3, 4, 6]
 # [7, 6]
