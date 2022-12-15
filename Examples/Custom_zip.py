@@ -4,7 +4,7 @@
 # full=False - по умолчанию "склеить" последовательности по кратчайшей, иначе по самой длинной
 # default=None - если full=True, вместо недостающих элементов поставить значение указанное в параметре default
 from typing import Tuple, Iterable, List
-from copy import *
+
 
 def custom_zip(*sequences: Iterable, full=False, default=None) -> List[Tuple]:
     sequence_list = list(sequences)
@@ -12,13 +12,12 @@ def custom_zip(*sequences: Iterable, full=False, default=None) -> List[Tuple]:
     minimal_len = min(map(len, sequences))
     maximal_len = max(map(len, sequences))
     if full:
-        list_copy = deepcopy(sequence_list)
-        for argument in list_copy:
+        for argument in sequence_list:
             argument = list(argument.append(default) for _ in range(maximal_len - len(argument))
                             if len(argument) < maximal_len)
         for i in range(maximal_len):
             element = []
-            for arg in list_copy:
+            for arg in sequence_list:
                 element.append(arg[i])
             func_result.append(tuple(element))
     else:
@@ -27,7 +26,6 @@ def custom_zip(*sequences: Iterable, full=False, default=None) -> List[Tuple]:
             for arg in sequence_list:
                 element.append(arg[i])
             func_result.append(tuple(element))
-    print(func_result)
     return func_result
 
 
@@ -39,9 +37,3 @@ assert (custom_zip(seq1, seq2)) == [(1, 9), (2, 8), (3, 7)]
 assert (custom_zip(seq1, seq2, full=True, default="Q")) == [(1, 9), (2, 8), (3, 7), (4, 'Q'), (5, 'Q')]
 
 print(custom_zip(seq1, seq2, seq3, seq4, full=True, default="RRR"))
-
-seq1 = [1, 2, 3]
-seq2 = [9, 8]
-
-assert custom_zip(seq2, seq1, full=True) == [(9, 1), (8, 2), (None, 3)]
-assert custom_zip(seq2, seq1) == [(9, 1), (8, 2)]
