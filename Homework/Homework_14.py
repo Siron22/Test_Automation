@@ -8,3 +8,21 @@
 # Lecture 10: 17 Nov 2022 19:15
 # ...
 # Lecture 32: 02 Feb 2023 19:15
+
+from datetime import *
+
+a = 0
+lec_date = datetime(2022, 10, 14, 19, 15)
+for _ in range(16):
+    a += 1
+    t1 = timedelta(days=3)
+    t2 = timedelta(days=4)
+    lec_date += t1
+    lec_format = lec_date.strftime("%d %b %Y %H:%M")
+    print(f'Lecture {a}: {lec_format}')
+    a += 1
+    lec_date += t2
+    lec_format = lec_date.strftime("%d %b %Y %H:%M")
+    print(f'Lecture {a}: {lec_format}')
+
+

@@ -38,14 +38,14 @@ t3 = t1 + t2
 print(t3)
 year = timedelta(days=1) * 365
 print(year)
-
+#
 now = datetime.now()
 print(now)
 print(now + year)
-
+#
 t333= datetime.fromtimestamp(1)
 print(t333)
-
+#
 print(datetime.now() - t333)
 
 print(now.strftime("%Y %H:%M"))
