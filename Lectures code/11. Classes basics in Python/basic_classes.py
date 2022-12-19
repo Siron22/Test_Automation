@@ -207,26 +207,26 @@
 # print(edvard.planet)
 # print(john.planet)
 
-class Human:
+# class Human:
 
     # def __new__(cls, *args, **kwargs):
     #     instance = super().__new__(cls)
 
 
-    def __init__(self, name, age):
-            print(self.__dict__)
-            self.name = name
-            self.age = age
-            self.height = None
-
-    def hello(self):
-        self.height = 30
-        print("Hello")
-
-robin = Human("Robin", 65)
-print(robin.__dict__)
-robin.hello()
-Human.hello(robin)
+#     def __init__(self, name, age):
+#             print(self.__dict__)
+#             self.name = name
+#             self.age = age
+#             self.height = None
+#
+#     def hello(self):
+#         self.height = 30
+#         print("Hello")
+#
+# robin = Human("Robin", 65)
+# print(robin.__dict__)
+# robin.hello()
+# Human.hello(robin)
 
 # instance = object.__new__(Human)
 # print(instance)
@@ -234,17 +234,17 @@ Human.hello(robin)
 # instance.__init__("RRR", 34)
 # print(instance.__dict__)
 
-robin.address = "Kharkiv"
-print(robin.address)
-print()
-
-def set_name(self, new_name):
-    self.name = new_name
-
-print(robin.name)
-#robin.set_name = set_name
-#robin.set_name(robin, "Andrew")
-from types import MethodType
-robin.set_name = MethodType(set_name, robin)
-robin.set_name("Andrew")
-print(robin.name)
+# robin.address = "Kharkiv"
+# print(robin.address)
+# print()
+#
+# def set_name(self, new_name):
+#     self.name = new_name
+#
+# print(robin.name)
+# #robin.set_name = set_name
+# #robin.set_name(robin, "Andrew")
+# from types import MethodType
+# robin.set_name = MethodType(set_name, robin)
+# robin.set_name("Andrew")
+# print(robin.name)
