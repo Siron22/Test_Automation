@@ -18,7 +18,7 @@ class Employee:
     w_reserve = {}
     t_reserve = {}
     workers_counter = 0
-    Teamlead_counter = 0
+    teamlead_counter = 0
     max_workers = 4
     min_age = 18
     max_age = 65
@@ -43,8 +43,8 @@ class Employee:
                     print(f'Sorry {self.name}, we have no vacancy! You are appended to HR reserve.')
                     Employee.w_reserve[name] = position
             elif position == 'Teamlead':
-                if Employee.Teamlead_counter < 1:
-                    Employee.Teamlead_counter += 1
+                if Employee.teamlead_counter < 1:
+                    Employee.teamlead_counter += 1
                     Employee.employees[name] = position
                     print(f'We have new Teamlead: {self.name}!')
                 else:
@@ -72,7 +72,6 @@ class Employee:
                       f'We need more {Employee.max_workers - Employee.workers_counter} workers')
                 if Employee.w_reserve:
                     res = list(Employee.w_reserve.keys())
-                    print(res)
                     new_worker = res[0]
                     print(f'We can recruit {new_worker} to work')
                     Employee.w_reserve.pop(new_worker)
@@ -81,15 +80,17 @@ class Employee:
                 else:
                     print('We have no anybody in reserve!')
             elif self.position == 'Teamlead':
-                Employee.Teamlead_counter -= 1
+                Employee.teamlead_counter -= 1
                 Employee.employees.pop(self.name, None)
-                print(f'We have no Teamlead for our team!')
+                print(f'Teamlead {self.name} is dismissed!\nWe have no Teamlead for our team!')
                 if Employee.t_reserve:
                     res = list(Employee.t_reserve.keys())
                     new_lead = res[0]
+                    Employee.workers_counter += 1
                     print(f'We can recruit {new_lead} to work')
                     Employee.t_reserve.pop(new_lead, None)
                     Employee.employees[new_lead] = self.position
+                    Employee.teamlead_counter += 1
                     print(f'Hello, my name is {new_lead} and I`m ready to be a new Teamlead')
                 else:
                     print('We have no anybody in reserve!')
@@ -106,7 +107,7 @@ class Employee:
         """Статический метод, показывает актуальное количество работников и вакансий поименный список"""
         print(f'We have {Employee.workers_counter} workers and we need '
               f'{Employee.max_workers - Employee.workers_counter}')
-        if Employee.Teamlead_counter == 1:
+        if Employee.teamlead_counter == 1:
             print(f'We have a Teamlead!')
         else:
             print('We have no Teamlead')
