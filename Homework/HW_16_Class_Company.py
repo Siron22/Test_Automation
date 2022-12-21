@@ -25,7 +25,7 @@ class Company:
         Company.companies_list[name] = {"name": name, "city": city, "activity": activity}
         print(f'New company {name} is registered')
 
-    def personal(self, pers: int):
+    def set_personal(self, pers: int):
         """метод добавляет данные про численность штата компании
         и относит их к категориям: большая средняя или маленькая"""
         if 1 < pers < 50:
@@ -64,8 +64,8 @@ Sharashka = Company("Sharashka", "Mumbasa", "Lottery")
 
 Company.golden_pages()
 
-IBM.personal(49)
-Apfel.personal(499)
-Sharashka.personal(501)
+IBM.set_personal(49)
+Apfel.set_personal(499)
+Sharashka.set_personal(501)
 
 Company.golden_pages()
