@@ -28,30 +28,32 @@ class Farm(ABC):
     milk_counter = 0
     feather_counter = 0
 
-    text = f'In our barn live {animals_counter} animals\n' \
-           f'In our chickencoop live {birds_counter} birds\n' \
-           f'For feed them we need {hay_counter} kg of hay and {corn_counter} kg of corn\n' \
-           f'We will receive:\n' \
-           f'- {eggs_counter} eggs;\n' \
-           f'- {wool_counter} of wool;\n' \
-           f'- {meat_counter} kg meat:\n' \
-           f'- {milk_counter}l milk\n' \
-           f'- {feather_counter} feather'
-
     @staticmethod
     def result():
         """записывает в файл окончательный результат"""
+        text = f'In our barn live {Farm.animals_counter} animals\n' \
+               f'In our chickencoop live {Farm.birds_counter} birds\n' \
+               f'For feed them we need {Farm.hay_counter} kg of hay and {Farm.corn_counter} kg of corn\n' \
+               f'We will receive:\n' \
+               f'- {Farm.eggs_counter} eggs;\n' \
+               f'- {Farm.wool_counter} of wool;\n' \
+               f'- {Farm.meat_counter} kg meat:\n' \
+               f'- {Farm.milk_counter}l milk\n' \
+               f'- {Farm.feather_counter} feather'
         with open('text.txt', 'w') as f:
-            f.write(Farm.text)
-        return Farm.text
+            f.write(text)
+        return text
 
+    @abstractmethod
     def set_property_label(self):
+        """Абстрактный метод для проставления "клейма сщбственности" на каждом из животных """
         print(f'This is the property of {Farm.name} farm')
 
 
 class Animals(Farm):
-    """Класс животных. Имеет неизменяемые поля - жильё и еда,
-    а также изменяемые поля для экземляров - имя и количество сена для питания"""
+    """Класс животных. Имеет неизменяемые поля - жильё (хлев) и еда (сено),
+    а также изменяемые поля для экземляров - имя и количество сена для питания.
+    Создать экзумпляр класса нельзя, для этого введён абстрактный метод say_hellо"""
 
     def __init__(self, name: str, hay: int):
         self.__home = "Barn"
@@ -65,14 +67,14 @@ class Animals(Farm):
 
     @abstractmethod
     def say_hello(self):
-        """метод выводит на экран звук животного"""
-        print('Everybody sounds great')  # Вот не понял я нужно ли здесь что-то печатать если
-        # все равно это значение не вызывается
+        """Абстрактный метод выводит на экран звук животного"""
+        print('Everybody sounds great')
 
 
 class Birds(Farm):
-    """Класс птиц. Имеет неизменяемые поля - жильё и еда,
-        а также изменяемые поля для экземляров - имя и количество кукурузы для питания"""
+    """Класс птиц. Имеет неизменяемые поля - жильё (курятник) и еда (кукуруза),
+    а также изменяемые поля для экземляров - имя и количество кукурузы для питания.
+    Создать экзумпляр класса нельзя, для этого введён абстрактный метод sing_hellо"""
 
     def __init__(self, name: str, corn: int):
         self.__home = "Chickencoop"
@@ -82,7 +84,7 @@ class Birds(Farm):
 
     @abstractmethod
     def sing_hello(self):
-        """метод выводит на экран пение птиц"""
+        """Абстрактный метод выводит на экран пение птиц"""
         print('Everybody sounds great')
 
     def welcoming(self):
@@ -91,7 +93,7 @@ class Birds(Farm):
 
 
 class Cow(Animals):
-    """Создает животное корову с полями класса животное и собственным параметром - количество молова"""
+    """Создает животное корову с полями класса "животное" и собственным параметром - количество молока"""
 
     def __init__(self, name: str, hay: int, milk: int):
         super().__init__(name, hay)
@@ -100,19 +102,23 @@ class Cow(Animals):
               f"She eats {self.hay} of hay for a day and gives you {self.milk} l milk")
 
     def buy_cow(self):
-        """Покупаем корову и селим в хлев учитываем необходимость в сене и сколько будем получать молока"""
+        """Покупаем корову и селим в хлев. Учитываем необходимость в сене и сколько будем получать молока"""
         Farm.animals_counter += 1
         Farm.milk_counter += self.milk
         Farm.hay_counter += self.hay
         print(f"One more cow in a barn. We have now {Farm.animals_counter} animals")
 
     def say_hello(self):
-        """метод выводит на экран звук животного"""
+        """Метод выводит на экран звук животного"""
         print('Mooooo')
+
+    def set_property_label(self):
+        """Клеймо собственности"""
+        print(f'This cow {self.name} is the property of {Farm.name} farm')
 
 
 class Pig(Animals, Birds):
-    """Создает животное свинью, которая живет в сарае, как животное, но ест кукурузу, как птица,
+    """Создает животное свинью, которая живет в сарае, как "животное", но ест кукурузу, как "птица",
      имеет собственный параметр - количество мяса"""
 
     def __init__(self, name: str, corn: int, meat: int):
@@ -129,23 +135,27 @@ class Pig(Animals, Birds):
         print(f"One more pig in a barn. We have now {Farm.animals_counter} animals")
 
     def say_hello(self):
-        """метод выводит на экран звук животного"""
+        """Метод выводит на экран звук животного"""
         print('Hru-Hru')
 
     def sing_hello(self):
-        pass
+        print('Мы сегодня вдвоём с соловьем чудесную песню споём!))))')
+
+    def set_property_label(self):
+        """Клеймо собственности"""
+        print(f'This pig {self.name} is the property of {Farm.name} farm')
 
 
 class Sheeps(Animals):
     def __init__(self, name: str, hay: int, wool: int):
-        """Создает животное овцу с полями класса животное и собственным параметром - количество шерсти"""
+        """Создает животное овцу с полями класса "животное" и собственным параметром - количество шерсти"""
         super().__init__(name, hay)
         self.wool = wool
         print(f"Here is goog sheep {self.name}, \n"
               f"She eats {self.hay} of hay for a day and gives you {self.wool} wool")
 
     def buy_sheep(self):
-        """Покупаем овцу и селим в хлев учитываем необходимость в сене и сколько будем получать шерсти"""
+        """Покупаем овцу и селим в хлев. Учитываем необходимость в сене и сколько будем получать шерсти"""
         Farm.animals_counter += 1
         Farm.wool_counter += self.wool
         Farm.hay_counter += self.hay
@@ -155,8 +165,13 @@ class Sheeps(Animals):
         """метод выводит на экран звук животного"""
         print('Beeeeee')
 
+    def set_property_label(self):
+        """Клеймо собственности"""
+        print(f'This sheep {self.name} is the property of {Farm.name} farm')
+
 
 class Chicken(Birds):
+    """Создает птицу курицу с полями класса "птица" и собственным параметром - количество яиц"""
     def __init__(self, name: str, corn: int, eggs: int):
         super().__init__(name, corn)
         self.eggs = eggs
@@ -164,17 +179,23 @@ class Chicken(Birds):
               f"She eats {self.corn} of corn for a day and gives you {self.eggs} l milk")
 
     def buy_chicken(self):
-        Farm.animals_counter += 1
+        """Покупаем курицу и селим в курятник. Учитываем необходимость в кукурузе и сколько будем получать яиц"""
+        Farm.birds_counter += 1
         Farm.eggs_counter += self.eggs
         Farm.corn_counter += self.corn
         print(f"One more chicken in a chickencoop. We have now {Farm.animals_counter} animals")
 
     def sing_hello(self):
-        """метод выводит на экран звук животного"""
+        """метод выводит на экран пение птицы"""
         print('Coo-co-co')
+
+    def set_property_label(self):
+        """Клеймо собственности"""
+        print(f'This chicken {self.name} is the property of {Farm.name} farm')
 
 
 class Duck(Birds):
+    """Создает птицу утку с полями класса "птица" и собственным параметром - количество пуха"""
     def __init__(self, name: str, corn: int, feather: int):
         super().__init__(name, corn)
         self.feather = feather
@@ -182,14 +203,19 @@ class Duck(Birds):
               f"She eats {self.corn} of corn for a day and gives you {self.feather} feather")
 
     def buy_duck(self):
-        Farm.animals_counter += 1
+        """Покупаем утку и селим в курятник. Учитываем необходимость в кукурузе и сколько будем получать пуха"""
+        Farm.birds_counter += 1
         Farm.feather_counter += self.feather
         Farm.corn_counter += self.corn
         print(f"One more duck in a chickencoop. We have now {Farm.animals_counter} animals")
 
     def sing_hello(self):
-        """метод выводит на экран звук животного"""
+        """метод выводит на экран пение птицы"""
         print('Ckrya-ckrya')
+
+    def set_property_label(self):
+        """Клеймо собственности"""
+        print(f'This duck {self.name} is the property of {Farm.name} farm')
 
 
 Murka = Cow('Murka', 10, 15)
@@ -202,23 +228,28 @@ Pig1 = Pig('Pig1', 7, 120)
 Pig1.buy_pig()
 Pig1.welcoming()
 Pig1.say_hello()
+Pig1.set_property_label()
 print('-----------------------')
 Sheep1 = Sheeps('Sheep1', 4, 16)
 Sheep1.buy_sheep()
 Sheep1.welcoming()
 Sheep1.say_hello()
+Sheep1.set_property_label()
 print('-----------------------')
 Ryaba = Chicken('Ryaba', 1, 1)
 Ryaba.buy_chicken()
 Ryaba.welcoming()
 Ryaba.sing_hello()
+Ryaba.set_property_label()
 print('-----------------------')
 Scrudj = Duck('Scrudj', 2, 6)
 Scrudj.buy_duck()
 Scrudj.welcoming()
 Scrudj.sing_hello()
+Scrudj.set_property_label()
 print('-----------------------')
 print(f'Farm.animals_counter: {Farm.animals_counter}')
+print(f'Farm.birds_counter: {Farm.birds_counter}')
 print(f'Farm.milk_counter: {Farm.milk_counter}')
 print(f'Farm.hay_counter: {Farm.hay_counter}')
 print(f'Farm.corn_counter: {Farm.corn_counter}')
@@ -228,3 +259,5 @@ print(f'Farm.feather_counter: {Farm.feather_counter}')
 print('-----------------------')
 Farm.result()
 print(Farm.result())
+
+
