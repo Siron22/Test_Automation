@@ -31,7 +31,8 @@ class Farm(ABC):
     @staticmethod
     def result():
         """записывает в файл окончательный результат"""
-        text = f'In our barn live {Farm.animals_counter} animals\n' \
+        text = f'Farm ==== {Farm.name} ===\n' \
+               f'In our barn live {Farm.animals_counter} animals\n' \
                f'In our chickencoop live {Farm.birds_counter} birds\n' \
                f'For feed them we need {Farm.hay_counter} kg of hay and {Farm.corn_counter} kg of corn\n' \
                f'We will receive:\n' \
@@ -40,7 +41,7 @@ class Farm(ABC):
                f'- {Farm.meat_counter} kg meat:\n' \
                f'- {Farm.milk_counter}l milk\n' \
                f'- {Farm.feather_counter} feather'
-        with open('text.txt', 'w') as f:
+        with open('Farm.txt', 'w') as f:
             f.write(text)
         return text
 
@@ -176,7 +177,7 @@ class Chicken(Birds):
         super().__init__(name, corn)
         self.eggs = eggs
         print(f"Here is goog chicken {self.name}, \n"
-              f"She eats {self.corn} of corn for a day and gives you {self.eggs} l milk")
+              f"She eats {self.corn} of corn for a day and gives you {self.eggs} eggs")
 
     def buy_chicken(self):
         """Покупаем курицу и селим в курятник. Учитываем необходимость в кукурузе и сколько будем получать яиц"""
@@ -247,15 +248,6 @@ Scrudj.buy_duck()
 Scrudj.welcoming()
 Scrudj.sing_hello()
 Scrudj.set_property_label()
-print('-----------------------')
-print(f'Farm.animals_counter: {Farm.animals_counter}')
-print(f'Farm.birds_counter: {Farm.birds_counter}')
-print(f'Farm.milk_counter: {Farm.milk_counter}')
-print(f'Farm.hay_counter: {Farm.hay_counter}')
-print(f'Farm.corn_counter: {Farm.corn_counter}')
-print(f'Farm.eggs_counter: {Farm.eggs_counter}')
-print(f'Farm.wool_counter: {Farm.wool_counter}')
-print(f'Farm.feather_counter: {Farm.feather_counter}')
 print('-----------------------')
 Farm.result()
 print(Farm.result())
