@@ -115,7 +115,7 @@ class Cow(Animal):
     def __init__(self, name: str, hay: int, milk: int):
         super().__init__(name, hay)
         self.milk = milk
-        print(f"Here is goog cow {self.name}, \n"
+        print(f"Here is good cow {self.name}, \n"
               f"She eats {self.hay} of hay for a day and gives you {self.milk} l milk")
 
     def buy_cow(self):
@@ -138,7 +138,7 @@ class Sheep(Animal):
         """Создает животное овцу с полями класса "животное" и собственным параметром - количество шерсти"""
         super().__init__(name, hay)
         self.wool = wool
-        print(f"Here is goog sheep {self.name}, \n"
+        print(f"Here is good sheep {self.name}, \n"
               f"She eats {self.hay} of hay for a day and gives you {self.wool} wool")
 
     def buy_sheep(self):
@@ -162,7 +162,7 @@ class Chicken(Bird):
     def __init__(self, name: str, corn: int, eggs: int):
         super().__init__(name, corn)
         self.eggs = eggs
-        print(f"Here is goog chicken {self.name}, \n"
+        print(f"Here is good chicken {self.name}, \n"
               f"She eats {self.corn} of corn for a day and gives you {self.eggs} eggs")
 
     def buy_chicken(self):
@@ -186,7 +186,7 @@ class Duck(Bird):
     def __init__(self, name: str, corn: int, feather: int):
         super().__init__(name, corn)
         self.feather = feather
-        print(f"Here is goog duck {self.name}, \n"
+        print(f"Here is good duck {self.name}, \n"
               f"She eats {self.corn} of corn for a day and gives you {self.feather} feather")
 
     def buy_duck(self):
