@@ -13,7 +13,7 @@
 from abc import ABC, abstractmethod
 
 
-class BuhgalterMixin:
+class Buhgalter:
     """Вспомогательный класс, предназначен для учёта количества зверей и птиц,
     проживающих на ферме, количества корма, необходимого чтобы их прокормить в течении года
     и колиство с/х продукции, которая будет получена по окончанию года"""
@@ -30,16 +30,16 @@ class BuhgalterMixin:
     @staticmethod
     def result():
         """записывает в файл окончательный результат"""
-        text = f'Farm ==== {BuhgalterMixin.farm_name} ===\n' \
-               f'In our barn live {BuhgalterMixin.animals_counter} animals\n' \
-               f'In our chickencoop live {BuhgalterMixin.birds_counter} birds\n' \
-               f'For feed them we need {BuhgalterMixin.hay_counter} kg of hay and ' \
-               f'{BuhgalterMixin.corn_counter} kg of corn\n' \
+        text = f'Farm ==== {Buhgalter.farm_name} ===\n' \
+               f'In our barn live {Buhgalter.animals_counter} animals\n' \
+               f'In our chickencoop live {Buhgalter.birds_counter} birds\n' \
+               f'For feed them we need {Buhgalter.hay_counter} kg of hay and ' \
+               f'{Buhgalter.corn_counter} kg of corn\n' \
                f'We will receive:\n' \
-               f'- {BuhgalterMixin.eggs_counter} eggs;\n' \
-               f'- {BuhgalterMixin.wool_counter} of wool;\n' \
-               f'- {BuhgalterMixin.milk_counter}l milk\n' \
-               f'- {BuhgalterMixin.feather_counter} feather'
+               f'- {Buhgalter.eggs_counter} eggs;\n' \
+               f'- {Buhgalter.wool_counter} of wool;\n' \
+               f'- {Buhgalter.milk_counter}l milk\n' \
+               f'- {Buhgalter.feather_counter} feather'
         with open('Farm.txt', 'w') as f:
             f.write(text)
         return text
@@ -57,7 +57,7 @@ class DomesticAnimal(ABC):
         pass
 
 
-class Animal(DomesticAnimal, BuhgalterMixin):
+class Animal(DomesticAnimal):
     """Класс животных. Имеет наследуемое поле - имя, неизменяемые поля - жильё (хлев) и еда (сено),
     а также изменяемое поле для экземляров - количество сена для питания.
     Создать экзумпляр класса нельзя, для этого введён абстрактный метод say_hellо"""
@@ -74,8 +74,8 @@ class Animal(DomesticAnimal, BuhgalterMixin):
 
     def buy_animal(self):
         """Покупаем животное и селим в хлев. Учитываем необходимость в сене для питания"""
-        BuhgalterMixin.animals_counter += 1
-        BuhgalterMixin.hay_counter += self.hay
+        Buhgalter.animals_counter += 1
+        Buhgalter.hay_counter += self.hay
 
     @abstractmethod
     def say_hello(self):
@@ -83,7 +83,7 @@ class Animal(DomesticAnimal, BuhgalterMixin):
         pass
 
 
-class Bird(DomesticAnimal, BuhgalterMixin):
+class Bird(DomesticAnimal):
     """Класс птиц. Имеет наследуемое поле - имя, неизменяемые поля - жильё (курятник) и еда (кукуруза),
     а также изменяемое поле для экземляров - количество кукурузы для питания.
     Создать экзумпляр класса нельзя, для этого введён абстрактный метод sing_hellо"""
@@ -100,8 +100,8 @@ class Bird(DomesticAnimal, BuhgalterMixin):
 
     def buy_bird(self):
         """Покупаем птицу и селим в курятник. Учитываем необходимость в кукурузе и для питания"""
-        BuhgalterMixin.birds_counter += 1
-        BuhgalterMixin.corn_counter += self.corn
+        Buhgalter.birds_counter += 1
+        Buhgalter.corn_counter += self.corn
 
     @abstractmethod
     def sing_hello(self):
@@ -121,8 +121,8 @@ class Cow(Animal):
     def buy_cow(self):
         """Покупаем корову и селим в хлев. Учитываем необходимость в сене и сколько будем получать молока"""
         super().buy_animal()
-        BuhgalterMixin.milk_counter += self.milk
-        print(f"One more cow in a barn. We have now {BuhgalterMixin.animals_counter} animals")
+        Buhgalter.milk_counter += self.milk
+        print(f"One more cow in a barn. We have now {Buhgalter.animals_counter} animals")
 
     def say_hello(self):
         """Метод выводит на экран звук животного"""
@@ -130,7 +130,7 @@ class Cow(Animal):
 
     def set_property_label(self):
         """Клеймо собственности"""
-        print(f'This cow {self.name} is the property of {BuhgalterMixin.farm_name} farm')
+        print(f'This cow {self.name} is the property of {Buhgalter.farm_name} farm')
 
 
 class Sheep(Animal):
@@ -143,9 +143,9 @@ class Sheep(Animal):
 
     def buy_sheep(self):
         """Покупаем овцу и селим в хлев. Учитываем необходимость в сене и сколько будем получать шерсти"""
-        BuhgalterMixin.wool_counter += self.wool
+        Buhgalter.wool_counter += self.wool
         super().buy_animal()
-        print(f"One more sheep in a barn. We have now {BuhgalterMixin.animals_counter} animals")
+        print(f"One more sheep in a barn. We have now {Buhgalter.animals_counter} animals")
 
     def say_hello(self):
         """метод выводит на экран звук животного"""
@@ -153,7 +153,7 @@ class Sheep(Animal):
 
     def set_property_label(self):
         """Клеймо собственности"""
-        print(f'This sheep {self.name} is the property of {BuhgalterMixin.farm_name} farm')
+        print(f'This sheep {self.name} is the property of {Buhgalter.farm_name} farm')
 
 
 class Chicken(Bird):
@@ -167,9 +167,9 @@ class Chicken(Bird):
 
     def buy_chicken(self):
         """Покупаем курицу и селим в курятник. Учитываем необходимость в кукурузе и сколько будем получать яиц"""
-        BuhgalterMixin.eggs_counter += self.eggs
+        Buhgalter.eggs_counter += self.eggs
         super().buy_bird()
-        print(f"One more chicken in a chickencoop. We have now {BuhgalterMixin.animals_counter} animals")
+        print(f"One more chicken in a chickencoop. We have now {Buhgalter.animals_counter} animals")
 
     def sing_hello(self):
         """метод выводит на экран пение птицы"""
@@ -177,7 +177,7 @@ class Chicken(Bird):
 
     def set_property_label(self):
         """Клеймо собственности"""
-        print(f'This chicken {self.name} is the property of {BuhgalterMixin.farm_name} farm')
+        print(f'This chicken {self.name} is the property of {Buhgalter.farm_name} farm')
 
 
 class Duck(Bird):
@@ -191,9 +191,9 @@ class Duck(Bird):
 
     def buy_duck(self):
         """Покупаем утку и селим в курятник. Учитываем необходимость в кукурузе и сколько будем получать пуха"""
-        BuhgalterMixin.feather_counter += self.feather
+        Buhgalter.feather_counter += self.feather
         super().buy_bird()
-        print(f"One more duck in a chickencoop. We have now {BuhgalterMixin.animals_counter} animals")
+        print(f"One more duck in a chickencoop. We have now {Buhgalter.animals_counter} animals")
 
     def sing_hello(self):
         """метод выводит на экран пение птицы"""
@@ -201,7 +201,7 @@ class Duck(Bird):
 
     def set_property_label(self):
         """Клеймо собственности"""
-        print(f'This duck {self.name} is the property of {BuhgalterMixin.farm_name} farm')
+        print(f'This duck {self.name} is the property of {Buhgalter.farm_name} farm')
 
 
 Murka = Cow('Murka', 10, 15)
@@ -228,9 +228,9 @@ Scrudj.welcoming()
 Scrudj.sing_hello()
 Scrudj.set_property_label()
 print('-----------------------')
-BuhgalterMixin.result()
-print(BuhgalterMixin.result())
+Buhgalter.result()
+print(Buhgalter.result())
 
-A = BuhgalterMixin()
+A = Buhgalter()
 
 print(A)
