@@ -30,7 +30,7 @@ class Buhgalter:
     @staticmethod
     def result():
         """записывает в файл окончательный результат"""
-        text = f'Farm ==== {Buhgalter.farm_name} ===\n' \
+        text = f'Farm ==== {Buhgalter.farm_name} ====\n' \
                f'In our barn live {Buhgalter.animals_counter} animals\n' \
                f'In our chickencoop live {Buhgalter.birds_counter} birds\n' \
                f'For feed them we need {Buhgalter.hay_counter} kg of hay and ' \
