@@ -5,18 +5,43 @@
 
 def skip(condition, reason=''):
     def inner(func):
-        def wrapper():
+        def wrapper(*args, **kwargs):
             if condition:
                 print(f'{reason}')
             else:
-                func()
+                func(*args, **kwargs)
         return wrapper
-
     return inner
 
 
-@skip(condition=5*5==24, reason='Skipped because of Gladiolus')
-def test_two_plus_two():
-    print("Function completed")
+@skip(condition=False, reason='Skipped because of Gladiolus')
+def test_func(a, b):
+    c = print(a + b)
+    return c
 
-test_two_plus_two()
+@skip(condition=False, reason='Skipped because of Gladiolus')
+def foo(number):
+    print(number ** number)
+
+@skip(condition=False, reason='Skipped because of Gladiolus')
+def greetings(name):
+    print(f'Hello {name}')
+
+@skip(condition=False, reason='Skipped because of Gladiolus')
+def is_power_of_two(a: int, n=2) -> str:
+    if n > a:
+        print("NO")
+        return "NO"
+    elif n < a:
+        return is_power_of_two(a, n * 2)
+    else:
+        print("YES")
+        return "YES"
+
+
+
+
+foo(5)
+greetings('Vasya')
+is_power_of_two(255)
+test_func(2, 3)
