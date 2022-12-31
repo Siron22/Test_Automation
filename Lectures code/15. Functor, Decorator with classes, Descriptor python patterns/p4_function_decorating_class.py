@@ -41,7 +41,7 @@ class A:
         self.inner = 3
 
 a = A()
-#a.print_dict()
+a.print_dict()
 
 class Wrapper:
     def __init__(self, wrapped):

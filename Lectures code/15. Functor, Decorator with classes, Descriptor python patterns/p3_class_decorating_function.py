@@ -11,12 +11,12 @@ class Tracer:
 
 
 
-# @Tracer
-# def hello():
-#     print("HELLO!!!")
-#
-# hello()
-# hello()
+@Tracer
+def hello():
+    print("HELLO!!!")
+
+hello()
+hello()
 
 # class Person:
 #

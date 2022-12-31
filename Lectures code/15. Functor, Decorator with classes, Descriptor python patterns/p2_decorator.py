@@ -14,6 +14,8 @@ pass
 func = decorator(param)(func)
 """
 
+
+"""Cоздание декораторов строки. Помещают строку из функции в заданные тэги"""
 def bold_decorator(func):
     def wrapper(*args, **kwargs):
         return f"<b>{func(*args, **kwargs)}</b>"
