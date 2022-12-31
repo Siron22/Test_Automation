@@ -10,7 +10,6 @@ def skip(condition, reason=''):
                 print(f'{reason}')
             else:
                 func()
-
         return wrapper
 
     return inner
