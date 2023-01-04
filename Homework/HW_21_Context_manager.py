@@ -12,28 +12,31 @@ import time
 
 class Timer:
     elapsed_time = 0
-    start_time = time.time()
+
+    def __init__(self):
+        start_time = time.time()
+        self.start_time = start_time
 
     def __enter__(self):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        Timer.elapsed_time = time.time() - Timer.start_time
+        Timer.elapsed_time = time.time() - self.start_time
         return Timer.elapsed_time
 
     def __next__(self):
-        Timer.start_time += Timer.elapsed_time
+        self.start_time += Timer.elapsed_time
 
     def reset(self):
-        Timer.start_time = time.time()
+        self.start_time = time.time()
 
 
-# with Timer() as t:
-#     time.sleep(1)
-# print(t.elapsed_time)  # ~1 second
-# with t:
-#     time.sleep(2)
-# print(t.elapsed_time)  # ~3 seconds
+with Timer() as t:
+    time.sleep(1)
+print(t.elapsed_time)  # ~1 second
+with t:
+    time.sleep(2)
+print(t.elapsed_time)  # ~3 seconds
 
 with Timer() as t2:
     time.sleep(1)
