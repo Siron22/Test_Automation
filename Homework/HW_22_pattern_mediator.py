@@ -6,7 +6,6 @@ Pattern "Mediator"
 <<< Brain >>>
 """
 from abc import ABC, abstractmethod
-from enum import Enum
 
 
 class Event:
@@ -15,12 +14,12 @@ class Event:
     Danger = "Danger"
 
 
-class BodyPartType(Enum):
+class BodyPartType():
     """Типы частей тела"""
-    Hand = 0
-    Leg = 1
-    Eye = 2
-    Ear = 3
+    Hand = "Hand"
+    Leg = "Leg"
+    Eye = "Eye"
+    Ear = "Ear"
 
 
 class Nerve(ABC):
@@ -50,7 +49,7 @@ class Eye(BodyPart):
     def __init__(self, mediator):
         self.mediator = mediator
 
-    def something_see(self,):
+    def something_see(self, ):
         event = None
         answer = input("What have you seen (Food/Danger)?: ")
         if answer == "Food":
@@ -186,5 +185,5 @@ leg = Leg(mediator)
 ear = Ear(mediator)
 
 eye.something_see()
-print('*'*25)
+print('*' * 25)
 ear.something_hear()
