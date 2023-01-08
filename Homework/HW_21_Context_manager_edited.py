@@ -57,7 +57,7 @@ t2.reset()
 with t2:
     time.sleep(2)
 print(t2.elapsed_time)  # ~2 seconds
-
+print(">>>>Pause")
 with Timer() as t:
     time.sleep(1)
 

@@ -1,6 +1,6 @@
 from urllib import request
 
-from L17.p5_Abstract_factory.factories import AbstractFactory
+from factories import AbstractFactory
 
 
 class Connector:

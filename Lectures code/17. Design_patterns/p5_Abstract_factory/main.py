@@ -1,7 +1,7 @@
 from urllib.error import URLError
 
-from L17.p5_Abstract_factory.connector import Connector
-from L17.p5_Abstract_factory.factories import HTTPFactory, FTPFactory
+from connector import Connector
+from factories import HTTPFactory, FTPFactory
 
 domain = 'ftp.freebsd.org'
 path = '/pub/FreeBSD/'
