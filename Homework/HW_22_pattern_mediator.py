@@ -6,7 +6,7 @@ Pattern "Mediator"
 <<< Brain >>>
 """
 from abc import ABC, abstractmethod
-
+from enum import Enum
 
 class Event:
     """Типы возможных событий"""
@@ -14,12 +14,12 @@ class Event:
     Danger = "Danger"
 
 
-class BodyPartType():
+class BodyPartType(Enum):
     """Типы частей тела"""
-    Hand = "Hand"
-    Leg = "Leg"
-    Eye = "Eye"
-    Ear = "Ear"
+    Hand = 1
+    Leg = 2
+    Eye = 3
+    Ear = 4
 
 
 class Nerve(ABC):
