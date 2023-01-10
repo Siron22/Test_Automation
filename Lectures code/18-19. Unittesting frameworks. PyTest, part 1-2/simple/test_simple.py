@@ -1,3 +1,5 @@
+import pytest
+
 def add(a, b):
     return a + b
 
@@ -32,3 +34,20 @@ def test_with_several_assetions():
 # def QQQadd_4_1_test():
 #     res = add(4, 1)
 #     assert res == 10, f'Expected {10}, but got {res}'
+
+def test_approx():
+    res = 0.1 + 0.2
+    assert pytest.approx(res) == 0.3
+
+
+def test_approx2():
+    assert pytest.approx(120, abs=30) == 100
+
+def test_approx3():
+    assert 120 - 30 <= 100 <= 120 + 30
+
+def test_approx4():
+    assert pytest.approx(100, rel=0.1) == 111
+
+def test_approx5():
+    assert pytest.approx([100, 111, 108], abs=10) == [99, 105, 106]
