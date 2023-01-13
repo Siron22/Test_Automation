@@ -3,9 +3,8 @@ import random
 from structure_without_list import StructureWithoutList
 import pytest
 
-sys.path.append('/home/serhii/PycharmProjects/Test_Automation')
-print(sys.path)
-
+sys.path.append('/home/serhii/PycharmProjects/Test_Automation/Homework')
+#print(sys.path)
 
 @pytest.fixture()
 def new_issue():
@@ -52,3 +51,5 @@ def any_number():
     a, b = random.choice(list(numbers.items()))
     return a, b
 
+def test_get_third(add_five):
+    assert add_five.get(3) == 'Hello third'
