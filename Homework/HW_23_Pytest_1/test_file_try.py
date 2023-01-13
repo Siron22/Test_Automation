@@ -45,7 +45,7 @@ class TestAddSecondItem:
         assert TestAddSecondItem.item.prev_item == 1
 
     def test_cur_ind(self):
-        assert TestAddFirstItem.issue.current_index == 2
+        assert TestAddSecondItem.issue.current_index == 2
 
     def test_length(self):
         assert TestAddSecondItem.issue.length == 2

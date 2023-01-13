@@ -19,9 +19,18 @@ def add_one():
     issue.add('Hello first')
     return issue
 
+@pytest.fixture(scope='module')
+def add_five():
+    issue = StructureWithoutList()
+    issue.add('Hello first')
+    issue.add('Hello second')
+    issue.add('Hello third')
+    issue.add('Hello fourth')
+    issue.add('Hello fifth')
+    return issue
 
-@pytest.fixture(scope='session')
-def add_five1():
+@pytest.fixture(scope='function')
+def add_five_d():
     issue = StructureWithoutList()
     issue.add('Hello first')
     issue.add('Hello second')
@@ -43,13 +52,3 @@ def any_number():
     a, b = random.choice(list(numbers.items()))
     return a, b
 
-
-@pytest.fixture(scope='session')
-def add_five2():
-    issue = StructureWithoutList()
-    issue.add('Hello first')
-    issue.add('Hello second')
-    issue.add('Hello third')
-    issue.add('Hello fourth')
-    issue.add('Hello fifth')
-    return issue
