@@ -17,7 +17,7 @@ class TestCar:
         self.car = Car('1111', '11111')
         print("In setup method")
 
-    #@pytest.mark.xfail(reason="JIRA-123")
+    #@pytest.ini.mark.xfail(reason="JIRA-123")
     def test_default_seat_numbers(self, number, owner, default_car):
         #assert default_car.number_of_seats == 5
         self.car.add_passenger('Another John')

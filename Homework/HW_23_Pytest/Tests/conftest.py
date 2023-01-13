@@ -1,10 +1,20 @@
-import sys
 import random
-from structure_without_list import StructureWithoutList
 import pytest
+from structure_without_list import StructureWithoutList
+from pathlib import Path
+# import sys
+# sys.path.append('/home/serhii/PycharmProjects/Test_Automation/Homework/HW_23_Pytest')
+# print(sys.path)
 
-sys.path.append('/home/serhii/PycharmProjects/Test_Automation/Homework')
-#print(sys.path)
+# import sys
+# path_root = Path(__file__).parents[2]
+# sys.path.append(str(path_root))
+# print(sys.path)
+
+import sys
+module_path = "/home/serhii/PycharmProjects/Test_Automation/Homework/HW_23_Pytest/Tests"
+if module_path not in sys.path:
+    sys.path.append(module_path)
 
 @pytest.fixture()
 def new_issue():
@@ -51,5 +61,5 @@ def any_number():
     a, b = random.choice(list(numbers.items()))
     return a, b
 
-def test_get_third(add_five):
-    assert add_five.get(3) == 'Hello third'
+# def test_get_third(add_five):
+#     assert add_five.get(3) == 'Hello third'

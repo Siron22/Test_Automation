@@ -31,7 +31,7 @@ import pytest
 #     assert not car.validate_number_plate()
 
 
-# @pytest.mark.parametrize('number,owner', [('ABC1234', 'Owner1'), ('QWE5432', 'Owner2'), ('QW4543E', 'Owner3')])
+# @pytest.ini.mark.parametrize('number,owner', [('ABC1234', 'Owner1'), ('QWE5432', 'Owner2'), ('QW4543E', 'Owner3')])
 # def test_number_validation_valid(number, owner):
 #     car = Car(number, owner)
 #     assert car.validate_number_plate()
@@ -39,7 +39,7 @@ import pytest
 # param = '3333333333333333333333'
 # invalid_input_data = [(param, 'Owner1'), ('12344', 'Owner1'), ('', 'Owner1')]
 #
-# @pytest.mark.parametrize('number,owner', invalid_input_data)
+# @pytest.ini.mark.parametrize('number,owner', invalid_input_data)
 # def test_number_validation_invalid(number, owner):
 #     car = Car(number, owner)
 #     assert not car.validate_number_plate()

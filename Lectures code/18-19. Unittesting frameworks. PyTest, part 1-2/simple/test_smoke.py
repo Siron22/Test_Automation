@@ -5,7 +5,7 @@ import pytest
 def test_smoke1():
     assert 1 == 4
 
-#@pytest.mark.skip()
+#@pytest.ini.mark.skip()
 @pytest.mark.skip(reason='Skip because IP')
 def test_smoke2():
     assert 1 == 1

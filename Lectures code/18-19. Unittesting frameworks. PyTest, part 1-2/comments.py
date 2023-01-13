@@ -2,7 +2,7 @@
 1. Unit tests frameworks overview
 2. Какие способы тестирования в Питон
 3. Установка PyTest
-4. Простой тест. Вывод консоли. pytest --help
+4. Простой тест. Вывод консоли. pytest.ini --help
 5. Соглашение об именах
 6. Где PyTest ищет тесты и способы запуска тестов. --collect-only опция
 7. Assertions

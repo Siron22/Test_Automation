@@ -7,7 +7,7 @@ from L19.car import Car
 import pytest
 
 
-# @pytest.fixture()
+# @pytest.ini.fixture()
 # def default_car():
 #     car = Car('ABC9999', 'John Smith')
 #     print(car.number_plate)
@@ -21,7 +21,7 @@ def test_default_seat_numbers(default_car):
 def test_default_passengers(default_car):
     assert default_car.passengers == []
 
-# @pytest.fixture()
+# @pytest.ini.fixture()
 # def random_value():
 #     import random
 #     return random.randint(0, 100)

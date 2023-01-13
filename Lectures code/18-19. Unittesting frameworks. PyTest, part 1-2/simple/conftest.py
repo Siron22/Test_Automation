@@ -7,7 +7,7 @@ from L19.car import Car
 import pytest
 
 
-# @pytest.fixture()
+# @pytest.ini.fixture()
 # def default_car():
 #     car = Car('ABC1234', 'John Smith')
 #     return car
@@ -20,7 +20,7 @@ def default_car():
     yield car
     car.close_connection()
 
-# @pytest.fixture(scope='function')
+# @pytest.ini.fixture(scope='function')
 # def default_car(request):
 #     car = Car('ABC1234', 'John Smith')
 #     print(car.number_plate)
@@ -38,7 +38,7 @@ def configurable_car():
         return Car(number, owner)
     return config_car
 
-# @pytest.fixture()
+# @pytest.ini.fixture()
 # def start_service():
 #     start_service_()
 #     yield
@@ -56,11 +56,11 @@ def default_owner():
 def car_with_valid_number(valid_number, default_owner):
     return Car(valid_number, default_owner)
 
-# @pytest.fixture()
+# @pytest.ini.fixture()
 # def client(service):
 #     pass
 #
-# @pytest.fixture()
+# @pytest.ini.fixture()
 # def service():
 #     pass
 
