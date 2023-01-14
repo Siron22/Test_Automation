@@ -1,20 +1,14 @@
 import random
 import pytest
-from structure_without_list import StructureWithoutList
-from pathlib import Path
-# import sys
-# sys.path.append('/home/serhii/PycharmProjects/Test_Automation/Homework/HW_23_Pytest')
-# print(sys.path)
 
-# import sys
-# path_root = Path(__file__).parents[2]
-# sys.path.append(str(path_root))
-# print(sys.path)
 
 import sys
-module_path = "/home/serhii/PycharmProjects/Test_Automation/Homework/HW_23_Pytest/Tests"
+module_path = r"/home/serhii/PycharmProjects/Test_Automation/Homework/HW_23_Pytest/Tests"
 if module_path not in sys.path:
     sys.path.append(module_path)
+
+from structure_without_list import StructureWithoutList
+
 
 @pytest.fixture()
 def new_issue():
@@ -28,6 +22,7 @@ def add_one():
     issue.add('Hello first')
     return issue
 
+
 @pytest.fixture(scope='module')
 def add_five():
     issue = StructureWithoutList()
@@ -37,6 +32,7 @@ def add_five():
     issue.add('Hello fourth')
     issue.add('Hello fifth')
     return issue
+
 
 @pytest.fixture(scope='function')
 def add_five_d():
