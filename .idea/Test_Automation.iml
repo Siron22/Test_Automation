@@ -5,5 +5,7 @@
     <orderEntry type="jdk" jdkName="Python 3.10" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="hl_pyauto_17oct22" />
+    <orderEntry type="module" module-name="my_selenium_test" />
+    <orderEntry type="module" module-name="hl_pyauto_17oct22_web" />
   </component>
 </module>
