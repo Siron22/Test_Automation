@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/../my_selenium_test/.idea/hillel_auto_selenium_test.iml" filepath="$PROJECT_DIR$/../my_selenium_test/.idea/hillel_auto_selenium_test.iml" />
       <module fileurl="file://$PROJECT_DIR$/../hl_pyauto_17oct22/.idea/hl_pyauto_17oct22.iml" filepath="$PROJECT_DIR$/../hl_pyauto_17oct22/.idea/hl_pyauto_17oct22.iml" />
       <module fileurl="file://$PROJECT_DIR$/../hl_pyauto_17oct22_web/.idea/hl_pyauto_17oct22_web.iml" filepath="$PROJECT_DIR$/../hl_pyauto_17oct22_web/.idea/hl_pyauto_17oct22_web.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../my_selenium_test/.idea/my_selenium_test.iml" filepath="$PROJECT_DIR$/../my_selenium_test/.idea/my_selenium_test.iml" />
     </modules>
   </component>
 </project>
