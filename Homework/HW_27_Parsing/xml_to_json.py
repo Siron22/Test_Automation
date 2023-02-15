@@ -24,15 +24,11 @@ for page in root.iter('page'):
         element_list[element_name] = platform_list
     page_list[page_name] = element_list
 
-
-print(page_list)
-
-json_pages = json.dumps(page_list)
-
+json_pages = eval(json.dumps(page_list))
 print(json_pages)
 
 with open('my_json_data.json', 'w') as f:
-    json.dump(page_list, f, indent=4, separators=(". ", " = "))
+    json.dump(json_pages, f, indent=4,)
 
 
 
