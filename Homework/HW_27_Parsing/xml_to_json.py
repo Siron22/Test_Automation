@@ -25,7 +25,6 @@ for page in root.iter('page'):
     page_list[page_name] = element_list
 
 json_pages = eval(json.dumps(page_list))
-print(json_pages)
 
 with open('my_json_data.json', 'w') as f:
     json.dump(json_pages, f, indent=4,)
