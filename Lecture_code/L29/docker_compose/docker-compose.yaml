@@ -1,0 +1,17 @@
+version: "3.7"
+
+services:
+  server:
+    image: alexlitvino/server02132023
+    hostname: server
+    ports:
+      - '8000:8000'
+    volumes:
+      - "./data:/./server/data"
+#    environment:
+#      ENV_VAR: ENV_VAR_VALUE
+
+  client:
+    image: request_sender:docker
+    depends_on:
+      - server

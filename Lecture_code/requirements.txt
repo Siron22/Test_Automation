@@ -1,0 +1,6 @@
+BeautifulSoup4
+pytest
+pytest-cov
+pytest-xdist
+pytest-check
+pytest-random-order
