@@ -1,5 +1,5 @@
-users_data = [('James', 25, 'male', 'USA'),
-  ('Leila', 32, 'female', 'France'),
-  ('Brigitte', 35, 'female', 'England'),
-  ('Mike', 40, 'male', 'Denmark'),
-  ('Elizabeth', 21, 'female', 'Canada')]
+('James', 25, 'male', 'USA'),
+('Leila', 32, 'female', 'France'),
+('Brigitte', 35, 'female', 'England'),
+('Mike', 40, 'male', 'Denmark'),
+('Elizabeth', 21, 'female', 'Canada')
