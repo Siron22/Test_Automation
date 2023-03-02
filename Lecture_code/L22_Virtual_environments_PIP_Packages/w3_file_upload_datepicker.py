@@ -13,7 +13,7 @@ driver.implicitly_wait(5)
 # driver.get('https://www.imgonline.com.ua/eng/combine-two-images-into-one.php')
 #
 # upload_file = driver.find_element(By.XPATH, "//input[@name='uploadfile']")
-# upload_file.send_keys('/home/olytvynov/Projects/HL/hl_pyauto_17oct22/L22/img.jpg')
+# upload_file.send_keys('/home/olytvynov/Projects/HL/hl_pyauto_17oct22/L22_Virtual_environments_PIP_Packages/img.jpg')
 
 # Datepicker
 
