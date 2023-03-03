@@ -50,7 +50,7 @@ def letter_counter_help(directory:str, letter_to_find:str, files:list):
 class CustomThread(threading.Thread):
 
     def __init__(self, group=None, target=None, name=None, args=(), kwargs={}, Verbose=None):
-        super().__init__(group, target, name, args, kwargs)
+        threading.Thread.__init__(self, group, target, name, args, kwargs)
         self._return = None
 
     def run(self):
@@ -58,7 +58,7 @@ class CustomThread(threading.Thread):
             self._return = self._target(*self._args, **self._kwargs)
 
     def join(self, *args):
-        super().join(*args)
+        threading.Thread.join(self, *args)
         return self._return
 
 
