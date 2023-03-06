@@ -19,7 +19,7 @@ def file_generator(directory:str, number_of_files:int, size:int):
     os.mkdir(f'{directory}')
     symbols = string.ascii_letters + string.digits + string.punctuation
     for _ in range(number_of_files):
-        text = ''.join(random.choice(symbols) for _ in range(random.randint(size / 2, size)))
+        text = ''.join(random.choice(symbols) for _ in range(random.randint(size // 2, size)))
         with open(f'./{directory}/file:{file_counter}', 'w') as f:
             f.write(text)
         file_counter+=1
@@ -108,7 +108,7 @@ def letter_counter_in_n_threads(directory:str, letter_to_find:str, number_of_thr
 
 
 
-# file_generator('dir', 100, 1000000)
+file_generator('dir', 100, 1000000)
 one_thread = letter_counter_in_one_thread("dir", '!')
 n_treads = letter_counter_in_n_threads('dir', '!', 10)
 print(one_thread)
