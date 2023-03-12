@@ -1,11 +1,15 @@
 from selenium.webdriver import Chrome, ActionChains
-from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome import webdriver
+from selenium.webdriver.chrome.service import Service as ChromeService
 import time
-
 from selenium.webdriver.common.by import By
+from webdriver_manager.chrome import ChromeDriverManager
 
-path = '/home/olytvynov/Projects/HL/hl_pyauto_17oct22/drivers/chromedriver_linux64/chromedriver'
-driver = Chrome(service=Service(path))
+
+# path = '/home/olytvynov/Projects/HL/hl_pyauto_17oct22/drivers/chromedriver_linux64/chromedriver'
+# driver = Chrome(service=Service(path))
+
+driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
 driver.maximize_window()
 driver.implicitly_wait(5)
 
@@ -28,7 +32,7 @@ query_input = driver.find_element(By.NAME, 'q')
 query_input.send_keys('Croatia')
 hint = driver.find_element(By.XPATH, '//ul[@role="listbox"]/li[1]')
 hint.click()
-driver.execute_script("window.scrollBy(0,document.body.scrollHeight)")
+driver.execute_script("window.scrollBy(0,document.body.scrollHeight)") # пролистать вниз страницы
 
 
 time.sleep(3)
