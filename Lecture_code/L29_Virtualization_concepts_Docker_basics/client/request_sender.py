@@ -4,8 +4,8 @@ import string
 import time
 
 
-#url = "http://127.0.0.1:8000"  # to run locally
-url = "http://server:8000"  # to run from inside Docker container
+url = "http://127.0.0.1:8000"  # to run locally
+# url = "http://server:8000"  # to run from inside Docker container
 
 
 for i in range(10):
