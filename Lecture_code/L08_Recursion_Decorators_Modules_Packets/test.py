@@ -71,8 +71,8 @@ def get_run_time(func, *args, **kwargs):
 # print(get_run_time(say_hello, 'Petr', 25))
 # print(time.time())
 
-# from utils import decorators
-# import utils
+# from sources import decorators
+# import sources
 # print('OUTPUT FROM main.py', decorators.very_slow_function(100))
 
 # import random
